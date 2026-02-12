@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
              {/* Menggunakan path absolut '/logo.svg' */}
              <img 
-               src="/logo.svg" 
+               src="/logo.png" 
                alt="Elite Syariah Logo" 
                className="w-full h-full object-contain"
              />
