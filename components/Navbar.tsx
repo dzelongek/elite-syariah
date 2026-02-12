@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Menggunakan direct path ke file di public/root folder daripada import module
-// Ini lebih stabil dan menghindari error resolution "Failed to resolve module specifier"
-const logoImage = '/logo.png';
-
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,17 +27,12 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          {/* Menggunakan Image Tag dengan source path langsung */}
           <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
+             {/* Menggunakan path absolut '/logo.png' yang mengarah ke file di folder public/root, sama seperti favicon */}
              <img 
-               src={logoImage} 
+               src="/logo.png" 
                alt="Elite Syariah Logo" 
                className="w-full h-full object-contain"
-               onError={(e) => {
-                 // Fallback darurat jika gambar benar-benar tidak ditemukan / corrupt
-                 e.currentTarget.style.display = 'none';
-                 e.currentTarget.parentElement!.innerHTML = '<i class="fa-solid fa-house text-emerald-900 text-2xl"></i>';
-               }}
              />
           </div>
           
