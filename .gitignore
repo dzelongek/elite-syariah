@@ -33,5 +33,5 @@ dist-ssr
 
 # User requested ignores (Aset spesifik di folder public)
 # Menghindari logo ter-push jika diinginkan
-public/logo.svg
-public/logo.png
+#public/logo.svg
+#public/logo.png
