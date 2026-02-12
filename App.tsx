@@ -7,6 +7,7 @@ import Pricing from './components/Pricing';
 import Location from './components/Location';
 import Footer from './components/Footer';
 import StickyMobileNav from './components/StickyMobileNav';
+import { WHATSAPP_NUMBER } from './constants';
 
 const App: React.FC = () => {
   return (
@@ -28,7 +29,9 @@ const App: React.FC = () => {
       
       {/* Global WhatsApp Floating Button (Desktop) */}
       <a 
-        href="#"
+        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        target="_blank"
+        rel="noopener noreferrer"
         className="hidden md:flex fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform z-50 animate-bounce-slow"
         aria-label="Chat WhatsApp"
       >

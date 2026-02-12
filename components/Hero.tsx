@@ -1,4 +1,5 @@
 import React from 'react';
+import { MAPS_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -33,7 +34,12 @@ const Hero: React.FC = () => {
           <a href="#pricing" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:shadow-amber-600/50 transition-all transform hover:-translate-y-1">
             Lihat Kamar & Harga
           </a>
-          <a href="#location" className="border-2 border-white hover:bg-white hover:text-emerald-900 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all">
+          <a 
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-white hover:bg-white hover:text-emerald-900 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all"
+          >
             Lokasi Kami
           </a>
         </div>

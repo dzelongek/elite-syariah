@@ -1,4 +1,5 @@
 import React from 'react';
+import { WHATSAPP_NUMBER } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +12,12 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors">
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors"
+            >
               <i className="fa-brands fa-whatsapp text-white"></i>
             </a>
             <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors">

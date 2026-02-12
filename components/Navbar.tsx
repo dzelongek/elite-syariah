@@ -28,17 +28,17 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+          <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center overflow-hidden shrink-0 shadow-md p-1">
              {!logoError ? (
                <img 
-                 src="logo.png" 
+                 src="/logo.png" 
                  alt="Elite Syariah Logo" 
-                 className="object-cover w-full h-full" 
+                 className="object-contain w-full h-full" 
                  onError={() => setLogoError(true)} 
                />
              ) : (
-               <div className="w-full h-full flex items-center justify-center text-emerald-900 font-bold">
-                 ES
+               <div className="w-full h-full flex items-center justify-center text-emerald-900 font-bold text-xs text-center leading-tight">
+                 Elite<br/>Syariah
                </div>
              )}
           </div>
