@@ -7,12 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnpm-store
+
+# Build Output (Hasil Build)
 dist
 dist-ssr
-*.local
 
-# Editor directories and files
+# Local Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Editor directories
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +30,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# User requested ignores (Aset spesifik di folder public)
+# Menghindari logo ter-push jika diinginkan
+public/logo.svg
+public/logo.png
