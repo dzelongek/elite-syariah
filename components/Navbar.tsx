@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+// Menggunakan direct path ke file di public/root folder daripada import module
+// Ini lebih stabil dan menghindari error resolution "Failed to resolve module specifier"
+const logoImage = '/logo.png';
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,23 +31,28 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center overflow-hidden shrink-0 shadow-md p-1">
-             {!logoError ? (
-               <img 
-                 src="/logo.png" 
-                 alt="Elite Syariah Logo" 
-                 className="object-contain w-full h-full" 
-                 onError={() => setLogoError(true)} 
-               />
-             ) : (
-               <div className="w-full h-full flex items-center justify-center text-emerald-900 font-bold text-xs text-center leading-tight">
-                 Elite<br/>Syariah
-               </div>
-             )}
+          {/* Menggunakan Image Tag dengan source path langsung */}
+          <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
+             <img 
+               src={logoImage} 
+               alt="Elite Syariah Logo" 
+               className="w-full h-full object-contain"
+               onError={(e) => {
+                 // Fallback darurat jika gambar benar-benar tidak ditemukan / corrupt
+                 e.currentTarget.style.display = 'none';
+                 e.currentTarget.parentElement!.innerHTML = '<i class="fa-solid fa-house text-emerald-900 text-2xl"></i>';
+               }}
+             />
           </div>
-          <span className={`font-montserrat font-bold text-xl ${isScrolled || isMobileMenuOpen ? 'text-white' : 'text-white drop-shadow-md'}`}>
-            Elite Syariah
-          </span>
+          
+          <div className="flex flex-col">
+            <span className={`font-montserrat font-bold text-lg md:text-xl leading-none tracking-tight ${isScrolled || isMobileMenuOpen ? 'text-white' : 'text-white drop-shadow-lg'}`}>
+              ELITE SYARIAH
+            </span>
+            <span className={`font-lato font-bold text-[0.6rem] md:text-xs tracking-widest uppercase ${isScrolled || isMobileMenuOpen ? 'text-amber-400' : 'text-amber-300 drop-shadow-md'}`}>
+              Guest House & Kost
+            </span>
+          </div>
         </div>
 
         {/* Desktop Menu */}
