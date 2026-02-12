@@ -10,7 +10,7 @@
     <meta name="description" content="Penginapan syariah nyaman & kost eksklusif di Tegalrejo. 5 menit ke Polbangtan, jalur wisata Ketep Pass & Kopeng. Fasilitas hotel, harga bersahabat. Parkir Luas." />
     <meta name="keywords" content="Kost Tegalrejo, Penginapan dekat Polbangtan, Hotel Syariah Magelang, Guest House Ketep Pass" />
 
-    <!-- Tailwind CSS (via CDN as requested by system prompt) -->
+    <!-- Tailwind CSS (via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -37,24 +37,31 @@
       }
     </script>
 
-    <!-- Google Fonts: Montserrat (Headings) & Lato (Body) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="importmap">
+    
+    <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
+    "vite": "https://esm.sh/vite@^7.3.1",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
   }
 }
 </script>
-</head>
+  </head>
   <body class="font-lato text-gray-800 antialiased bg-white">
     <div id="root"></div>
+    <!-- Entry point script -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
