@@ -11,6 +11,7 @@ export interface PricingPlan {
   price: string;
   period: string;
   features: string[];
+  images: string[]; // Added array of image URLs
   recommended?: boolean;
 }
 
