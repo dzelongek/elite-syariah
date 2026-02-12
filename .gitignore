@@ -31,7 +31,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# User requested ignores (Aset spesifik di folder public)
-# Menghindari logo ter-push jika diinginkan
-#public/logo.svg
-#public/logo.png
+# User requested ignores
+# Mengabaikan seluruh folder public (berisi aset lokal seperti gambar, logo, dll)
+public/
