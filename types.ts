@@ -1,0 +1,21 @@
+export type PricingMode = 'daily' | 'monthly';
+
+export interface Amenity {
+  icon: string; // FontAwesome class
+  title: string;
+}
+
+export interface PricingPlan {
+  id: string;
+  title: string;
+  price: string;
+  period: string;
+  features: string[];
+  recommended?: boolean;
+}
+
+export interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
