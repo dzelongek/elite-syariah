@@ -1,7 +1,7 @@
 import { Amenity, Feature, PricingPlan } from './types';
 
 export const WHATSAPP_NUMBER = "6281234567890"; // Example number
-export const MAPS_URL = "https://maps.google.com"; // Placeholder
+export const MAPS_URL = "https://google.com/maps?output=search&q=elite+syariah+tegalrejo&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3m3YPDt_NFnmjs_fvB4vA8XwQ7cBGEwcMVqmOYmqbh0wrG-CpfOPic0WHgFCZBq1WNU-6TnyYIv4ckfRQc6GbQVl-jfxJ9ySzGcFkeelF-CWEirEqvcTaoNy0UzZqZXRv6fEWg9RymZrs8IOoW-CGSJIBXeTri3H7MraqFfF_N-EpExFqw&entry=mc&ved=1t:200715&ictx=111";
 
 export const FEATURES: Feature[] = [
   {

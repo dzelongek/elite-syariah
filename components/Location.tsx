@@ -1,4 +1,5 @@
 import React from 'react';
+import { MAPS_URL } from '../constants';
 
 const Location: React.FC = () => {
   return (
@@ -40,7 +41,7 @@ const Location: React.FC = () => {
             </div>
             
             <a 
-              href="https://maps.google.com" 
+              href={MAPS_URL} 
               target="_blank" 
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 text-emerald-900 font-bold hover:text-amber-600 transition-colors"

@@ -1,11 +1,11 @@
 import React from 'react';
-import { WHATSAPP_NUMBER } from '../constants';
+import { WHATSAPP_NUMBER, MAPS_URL } from '../constants';
 
 const StickyMobileNav: React.FC = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 md:hidden flex border-t border-gray-100">
       <a 
-        href="https://maps.google.com" 
+        href={MAPS_URL} 
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 py-4 flex flex-col items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors border-r border-gray-100"
