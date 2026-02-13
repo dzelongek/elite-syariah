@@ -17,9 +17,13 @@ const Facilities: React.FC = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
               <img 
-                src="https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop" 
-                alt="Fasilitas Kamar Lengkap"
+                src="/fasilitas.jpg" 
+                alt="Fasilitas Kamar Lengkap Elite Syariah"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                onError={(e) => {
+                  // Fallback jika file fasilitas.jpg belum diupload ke public
+                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                }}
               />
               <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 w-full">
                 <p className="text-white font-bold text-lg"><i className="fa-solid fa-check-circle text-amber-500 mr-2"></i> Bersih & Wangi</p>
