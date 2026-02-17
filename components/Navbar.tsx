@@ -34,13 +34,11 @@ const Navbar: React.FC = () => {
                alt="Elite Syariah Logo" 
                className="w-full h-full object-contain relative z-10"
                onError={(e) => {
-                 // Sembunyikan gambar rusak dan biarkan icon background terlihat
                  (e.target as HTMLImageElement).style.display = 'none';
                  const icon = document.getElementById('fallback-icon');
                  if (icon) icon.style.display = 'block';
                }}
              />
-             {/* Fallback Icon jika logo.png belum ada */}
              <i id="fallback-icon" className="fa-solid fa-hotel text-emerald-900 text-2xl absolute inset-0 m-auto w-fit h-fit hidden"></i>
           </div>
           

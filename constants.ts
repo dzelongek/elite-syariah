@@ -93,7 +93,7 @@ export const PRICING_DAILY: PricingPlan[] = [
     images: [
       'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1595526114035-0d443867891c?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1616594039964-40891a909d99?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1000&auto=format&fit=crop'
     ],
