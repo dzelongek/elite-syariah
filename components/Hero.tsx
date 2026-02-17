@@ -1,5 +1,5 @@
 import React from 'react';
-import { MAPS_URL, HERO_IMAGE_URL } from '../constants';
+import { MAPS_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -7,9 +7,13 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={HERO_IMAGE_URL}
+          src="/hero.jpg"
           alt="Elite Syariah Guest House Exterior"
           className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback jika file hero.jpg belum diupload ke public
+            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/80 to-emerald-900/60 mix-blend-multiply"></div>
       </div>

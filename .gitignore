@@ -33,3 +33,5 @@ dist-ssr
 
 # User requested ignores
 # Kita menghapus 'public/' dari sini agar folder tersebut kembali muncul di GitHub
+# Jika Anda ingin mengabaikan file spesifik (misal logo lama), tulis nama filenya saja, bukan foldernya.
+public/logo.svg

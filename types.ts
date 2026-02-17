@@ -20,3 +20,9 @@ export interface Feature {
   title: string;
   description: string;
 }
+
+export interface Review {
+  name: string;
+  rating: number;
+  review: string;
+}

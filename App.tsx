@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Facilities from './components/Facilities';
+import Reviews from './components/Reviews';
 import Pricing from './components/Pricing';
 import Location from './components/Location';
 import Footer from './components/Footer';
@@ -13,22 +14,23 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
+
       <main>
         <Hero />
         <Features />
         <Facilities />
+        <Reviews />
         <Pricing />
         <Location />
       </main>
-      
+
       <Footer />
-      
+
       {/* Mobile Conversion Elements */}
       <StickyMobileNav />
-      
+
       {/* Global WhatsApp Floating Button (Desktop) */}
-      <a 
+      <a
         href={`https://wa.me/${WHATSAPP_NUMBER}`}
         target="_blank"
         rel="noopener noreferrer"

@@ -3,11 +3,6 @@ import { Amenity, Feature, PricingPlan } from './types';
 export const WHATSAPP_NUMBER = "6281326985098";
 export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=G7M4%2BP7+Tegalrejo%2C+Kabupaten+Magelang%2C+Jawa+Tengah";
 
-// Menggunakan gambar Unsplash berkualitas tinggi sebagai aset utama
-// Ini mencegah gambar 'hilang' saat sinkronisasi git karena tidak bergantung pada file lokal
-export const HERO_IMAGE_URL = "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"; // Luxury Exterior/Vibe
-export const FACILITIES_IMAGE_URL = "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"; // Luxury Bedroom
-
 export const FEATURES: Feature[] = [
   {
     icon: "fa-solid fa-car",
@@ -98,7 +93,7 @@ export const PRICING_DAILY: PricingPlan[] = [
     images: [
       'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1595526114035-0d443867891c?q=80&w=1000&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1616594039964-40891a909d99?q=80&w=1000&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1000&auto=format&fit=crop'
     ],
@@ -199,5 +194,33 @@ export const PRICING_MONTHLY: PricingPlan[] = [
       'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1000&auto=format&fit=crop'
     ],
     recommended: true
+  }
+];
+
+export const REVIEWS = [
+  {
+    name: "Aldella Putri",
+    rating: 5,
+    review: "Terimakasih atas penginapannya yang sangat memuaskan🙏 Pelayanannya sangat oke dan ramah, penginapannya bersih,nyaman dan bikin betah. Pokoknya recommended banget untuk menginap di Elite Syariah 🥰"
+  },
+  {
+    name: "em rokib",
+    rating: 5,
+    review: "Sangat senang sekali nginep di sini. Penginapan yg oke banget. Dkt pondok API Tegalrejo dan SW"
+  },
+  {
+    name: "ruruh sawitri",
+    rating: 5,
+    review: "Guest House Elite Syariah nyaman banget, dekat sm Fasilitas umum , yang punya ramah sekali kamarnya bagus rapih bersih , free wifi  juga. Gak jauh dari kota . Recomend banget nginep disini ga rugi 👍🏻👍🏻"
+  },
+  {
+    name: "Brillianti Aisyah",
+    rating: 5,
+    review: "Tempatnya bagus, nyaman, harganya terjangkau. Ownernya ramah bgt"
+  },
+  {
+    name: "Sumekar Tanjung, M.A.",
+    rating: 5,
+    review: "Bersih, nyaman, pelayanan ramah, harga juga pantas. Ada mini kitchen juga. Superb!"
   }
 ];
