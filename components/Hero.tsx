@@ -6,22 +6,28 @@ const Hero: React.FC = () => {
     <section id="home" className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="public/hero.jpg"
-          alt="Elite Syariah Guest House Exterior"
-          className="w-full h-full object-cover"
-          width="1920"
-          height="1080"
-          fetchPriority="high"
-          onError={(e) => {
-            const img = e.target as HTMLImageElement;
-            if (img.src.includes('public/')) {
-              img.src = "hero.jpg";
-            } else {
-              img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
-            }
-          }}
-        />
+        <picture>
+          <source srcSet="public/hero.webp" type="image/webp" />
+          <img
+            src="public/hero.jpg"
+            alt="Elite Syariah Guest House Exterior"
+            className="w-full h-full object-cover"
+            width="1920"
+            height="1080"
+            fetchPriority="high"
+            onError={(e) => {
+              const img = e.target as HTMLImageElement;
+              // Prevent infinite loop if fallback fails
+              if (img.src !== "hero.jpg" && !img.src.includes('unsplash')) {
+                if (img.src.includes('public/')) {
+                  img.src = "hero.jpg";
+                } else {
+                  img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
+                }
+              }
+            }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/80 to-emerald-900/60 mix-blend-multiply"></div>
       </div>
 

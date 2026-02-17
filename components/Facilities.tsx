@@ -16,22 +16,27 @@ const Facilities: React.FC = () => {
           {/* Image Side */}
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
-              <img
-                src="public/fasilitas.jpg"
-                alt="Fasilitas Kamar Lengkap Elite Syariah"
-                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
-                width="600"
-                height="400"
-                loading="lazy"
-                onError={(e) => {
-                  const img = e.target as HTMLImageElement;
-                  if (img.src.includes('public/')) {
-                    img.src = "fasilitas.jpg";
-                  } else {
-                    img.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
-                  }
-                }}
-              />
+              <picture>
+                <source srcSet="public/fasilitas.webp" type="image/webp" />
+                <img
+                  src="public/fasilitas.jpg"
+                  alt="Fasilitas Kamar Lengkap Elite Syariah"
+                  className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    if (img.src !== "fasilitas.jpg" && !img.src.includes('unsplash')) {
+                      if (img.src.includes('public/')) {
+                        img.src = "fasilitas.jpg";
+                      } else {
+                        img.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                      }
+                    }
+                  }}
+                />
+              </picture>
               <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 w-full">
                 <p className="text-white font-bold text-lg"><i className="fa-solid fa-check-circle text-amber-500 mr-2"></i> Bersih & Wangi</p>
               </div>
