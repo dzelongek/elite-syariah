@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="public/hero.jpg"
+          src="/hero.jpg"
           alt="Elite Syariah Guest House Exterior"
           className="w-full h-full object-cover"
           width="1920"
@@ -15,9 +15,8 @@ const Hero: React.FC = () => {
           fetchPriority="high"
           onError={(e) => {
             const img = e.target as HTMLImageElement;
-            if (img.src.includes('public/')) {
-              img.src = "hero.jpg";
-            } else {
+            if (img.src !== "hero.jpg" && !img.src.includes('unsplash')) {
+              // Fallback to Unsplash
               img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
             }
           }}
