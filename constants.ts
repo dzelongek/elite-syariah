@@ -3,6 +3,11 @@ import { Amenity, Feature, PricingPlan } from './types';
 export const WHATSAPP_NUMBER = "6281326985098";
 export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=G7M4%2BP7+Tegalrejo%2C+Kabupaten+Magelang%2C+Jawa+Tengah";
 
+// Menggunakan gambar Unsplash berkualitas tinggi sebagai aset utama
+// Ini mencegah gambar 'hilang' saat sinkronisasi git karena tidak bergantung pada file lokal
+export const HERO_IMAGE_URL = "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"; // Luxury Exterior/Vibe
+export const FACILITIES_IMAGE_URL = "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop"; // Luxury Bedroom
+
 export const FEATURES: Feature[] = [
   {
     icon: "fa-solid fa-car",

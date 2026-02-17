@@ -1,5 +1,5 @@
 import React from 'react';
-import { ROOM_FACILITIES } from '../constants';
+import { ROOM_FACILITIES, FACILITIES_IMAGE_URL } from '../constants';
 
 const Facilities: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const Facilities: React.FC = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
               <img 
-                src="/fasilitas.jpg" 
+                src={FACILITIES_IMAGE_URL} 
                 alt="Fasilitas Kamar Lengkap Elite Syariah"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
               />

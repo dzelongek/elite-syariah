@@ -1,5 +1,5 @@
 import React from 'react';
-import { MAPS_URL } from '../constants';
+import { MAPS_URL, HERO_IMAGE_URL } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero.jpg"
+          src={HERO_IMAGE_URL}
           alt="Elite Syariah Guest House Exterior"
           className="w-full h-full object-cover"
         />
