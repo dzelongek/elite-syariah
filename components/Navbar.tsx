@@ -27,13 +27,21 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
-             {/* Menggunakan path absolut '/logo.png' */}
+          <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden relative group">
+             {/* Menggunakan path absolut '/logo.png' dengan fallback */}
              <img 
                src="/logo.png" 
                alt="Elite Syariah Logo" 
-               className="w-full h-full object-contain"
+               className="w-full h-full object-contain relative z-10"
+               onError={(e) => {
+                 // Sembunyikan gambar rusak dan biarkan icon background terlihat
+                 (e.target as HTMLImageElement).style.display = 'none';
+                 const icon = document.getElementById('fallback-icon');
+                 if (icon) icon.style.display = 'block';
+               }}
              />
+             {/* Fallback Icon jika logo.png belum ada */}
+             <i id="fallback-icon" className="fa-solid fa-hotel text-emerald-900 text-2xl absolute inset-0 m-auto w-fit h-fit hidden"></i>
           </div>
           
           <div className="flex flex-col">
