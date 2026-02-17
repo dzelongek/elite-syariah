@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
                 className="w-full h-full object-contain"
                 width="64"
                 height="64"
-                onError={(e) => {
+                onError={() => {
                   setLogoError(true);
                 }}
               />
