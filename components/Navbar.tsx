@@ -28,10 +28,10 @@ const Navbar: React.FC = () => {
         {/* Logo Section */}
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
-            {/* Menggunakan path relative 'public/logo.png' dengan fallback */}
+            {/* Menggunakan path relative '/logo.png' dengan fallback */}
             {!logoError ? (
               <img
-                src="public/logo.png"
+                src="/logo.png"
                 alt="Elite Syariah Logo"
                 className="w-full h-full object-contain"
                 width="64"
@@ -39,7 +39,11 @@ const Navbar: React.FC = () => {
                 onError={(e) => {
                   const img = e.target as HTMLImageElement;
                   if (img.src.includes('public/')) {
-                    img.src = "logo.png";
+                    // This fallback might not be needed anymore if we use /logo.png directly, 
+                    // but keeping logic safe or removing if redundant. 
+                    // Since we are changing source to /logo.png, let's simplify error handling 
+                    // to just set error state if /logo.png fails.
+                    setLogoError(true);
                   } else {
                     setLogoError(true);
                   }
