@@ -28,11 +28,25 @@ export const FEATURES: Feature[] = [
 
 export const ROOM_FACILITIES: Amenity[] = [
   { icon: "fa-solid fa-snowflake", title: "Tersedia AC" },
-  { icon: "fa-solid fa-shower", title: "Water Heater" },
-  { icon: "fa-solid fa-tv", title: "Smart TV" },
   { icon: "fa-solid fa-wifi", title: "Free WiFi" },
-  { icon: "fa-solid fa-bed", title: "Bed Berkualitas" },
+  { icon: "fa-solid fa-bed", title: "Springbed Nyaman" },
   { icon: "fa-solid fa-restroom", title: "Kamar Mandi Dalam" },
+  { icon: "fa-solid fa-tv", title: "TV LED" },
+  { icon: "fa-solid fa-shirt", title: "Laundry Service" },
+  { icon: "fa-solid fa-soap", title: "Perlengkapan Mandi" },
+  { icon: "fa-solid fa-broom", title: "Layanan Kebersihan" }
+];
+
+export const CONTACT_INFO = {
+  address: "Jl. Magelang - Yogyakarta No.KM. 23, Grogol, Payaman, Kec. Secang, Kabupaten Magelang",
+  whatsapp: "+62 813-2698-5098",
+  email: "admin@elitesyariah.com" // Placeholder, better than nothing
+};
+
+export const SOCIAL_LINKS = [
+  { href: `https://wa.me/${WHATSAPP_NUMBER}`, icon: "fa-brands fa-whatsapp" },
+  { href: "#", icon: "fa-brands fa-instagram" },
+  { href: "#", icon: "fa-brands fa-facebook-f" }
 ];
 
 export const PRICING_DAILY: PricingPlan[] = [

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               Guest House & Kost Eksklusif dengan lingkungan islami, aman, dan nyaman di Magelang.
             </p>
             <div className="flex gap-4">
-              {SOCIAL_LINKS.map((link, idx) => (
+              {SOCIAL_LINKS.map((link: { href: string; icon: string }, idx: number) => (
                 <a
                   key={idx}
                   href={link.href}
