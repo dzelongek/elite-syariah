@@ -24,8 +24,12 @@ const Facilities: React.FC = () => {
                 height="400"
                 loading="lazy"
                 onError={(e) => {
-                  // Fallback jika file fasilitas.jpg belum diupload ke public
-                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                  const img = e.target as HTMLImageElement;
+                  if (img.src.includes('public/')) {
+                    img.src = "fasilitas.jpg";
+                  } else {
+                    img.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                  }
                 }}
               />
               <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 w-full">
