@@ -7,9 +7,12 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero.jpg"
+          src="public/hero.jpg"
           alt="Elite Syariah Guest House Exterior"
           className="w-full h-full object-cover"
+          width="1920"
+          height="1080"
+          fetchPriority="high"
           onError={(e) => {
             // Fallback jika file hero.jpg belum diupload ke public
             (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
@@ -23,22 +26,22 @@ const Hero: React.FC = () => {
         <span className="inline-block mx-auto px-4 py-1 bg-amber-600/90 text-white text-xs md:text-sm font-bold uppercase tracking-widest rounded-full mb-2 backdrop-blur-sm">
           Selamat Datang di ELITE SYARIAH
         </span>
-        
+
         <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg">
           Kenyamanan Syariah,<br />
           <span className="text-amber-400">Senyaman Rumah Sendiri</span>
         </h1>
-        
+
         <p className="font-lato text-gray-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed drop-shadow-md">
           Pilihan cerdas untuk keluarga wisudawan Polbangtan & transit wisata Ketep Pass.
           Guest House harian & Kost eksklusif bulanan.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <a href="#pricing" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:shadow-amber-600/50 transition-all transform hover:-translate-y-1">
             Lihat Kamar & Harga
           </a>
-          <a 
+          <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -48,7 +51,7 @@ const Hero: React.FC = () => {
           </a>
         </div>
       </div>
-      
+
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-24 md:bottom-10 animate-bounce text-white/70">
         <i className="fa-solid fa-chevron-down text-2xl"></i>

@@ -6,20 +6,23 @@ const Facilities: React.FC = () => {
     <section id="facilities" className="py-20 bg-emerald-900 relative overflow-hidden">
       {/* Decorative Pattern Background */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-         <i className="fa-solid fa-star-and-crescent absolute -top-10 -left-10 text-9xl text-white"></i>
-         <i className="fa-solid fa-star-and-crescent absolute bottom-10 right-10 text-9xl text-white"></i>
+        <i className="fa-solid fa-star-and-crescent absolute -top-10 -left-10 text-9xl text-white"></i>
+        <i className="fa-solid fa-star-and-crescent absolute bottom-10 right-10 text-9xl text-white"></i>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          
+
           {/* Image Side */}
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
-              <img 
-                src="/fasilitas.jpg" 
+              <img
+                src="public/fasilitas.jpg"
                 alt="Fasilitas Kamar Lengkap Elite Syariah"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                width="600"
+                height="400"
+                loading="lazy"
                 onError={(e) => {
                   // Fallback jika file fasilitas.jpg belum diupload ke public
                   (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";

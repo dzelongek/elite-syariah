@@ -21,21 +21,20 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-      isScrolled || isMobileMenuOpen ? 'bg-emerald-900 shadow-lg py-3' : 'bg-transparent py-5 lg:py-6'
-    }`}>
+    <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-emerald-900 shadow-lg py-3' : 'bg-transparent py-5 lg:py-6'
+      }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
-             {/* Menggunakan path absolut '/logo.png' */}
-             <img 
-               src="/logo.png" 
-               alt="Elite Syariah Logo" 
-               className="w-full h-full object-contain"
-             />
+            {/* Menggunakan path absolut '/logo.png' */}
+            <img
+              src="/logo.png"
+              alt="Elite Syariah Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
-          
+
           <div className="flex flex-col">
             <span className={`font-montserrat font-bold text-lg md:text-xl leading-none tracking-tight ${isScrolled || isMobileMenuOpen ? 'text-white' : 'text-white drop-shadow-lg'}`}>
               ELITE SYARIAH
@@ -52,9 +51,8 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`font-medium transition-colors hover:text-amber-500 ${
-                isScrolled ? 'text-gray-100' : 'text-white drop-shadow-md'
-              }`}
+              className={`font-medium transition-colors hover:text-amber-500 ${isScrolled ? 'text-gray-100' : 'text-white drop-shadow-md'
+                }`}
             >
               {link.name}
             </a>
@@ -71,18 +69,17 @@ const Navbar: React.FC = () => {
         <button
           className="md:hidden text-white text-2xl focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
         >
           <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
         </button>
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-emerald-900 shadow-xl transition-all duration-300 overflow-hidden ${
-        isMobileMenuOpen ? 'max-h-[400px] border-t border-emerald-800' : 'max-h-0'
-      }`}>
+      <div className={`md:hidden absolute top-full left-0 w-full bg-emerald-900 shadow-xl transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[400px] border-t border-emerald-800' : 'max-h-0'
+        }`}>
         <div className="flex flex-col p-4 space-y-4">
-           {navLinks.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}

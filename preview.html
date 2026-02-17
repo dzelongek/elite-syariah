@@ -4,7 +4,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Elite Syariah Guest House & Kost Magelang. Penginapan nyaman, bersih, dan strategis dekat Polbangtan & Ketep Pass. Fasilitas lengkap: AC, WiFi, Water Heater.">
     <title>Elite Syariah Guest House & Kost | Preview</title>
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,16 +44,11 @@
             }
         }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Defer React Scripts -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin defer></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin defer></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
 </head>
 
 <body class="font-lato text-gray-800 antialiased bg-white">
@@ -283,6 +292,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 py-4 flex flex-col items-center justify-center text-gray-600 hover:bg-gray-50 transition-colors border-r border-gray-100"
+                        aria-label="Buka Lokasi di Google Maps"
                     >
                         <i className="fa-solid fa-location-dot text-lg mb-1"></i>
                         <span className="text-xs font-bold">Lokasi Maps</span>
@@ -293,6 +303,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-[1.5] py-4 flex flex-col items-center justify-center bg-emerald-900 text-white hover:bg-emerald-800 transition-colors"
+                        aria-label="Booking via WhatsApp"
                     >
                         <div className="flex items-center gap-2">
                             <i className="fa-brands fa-whatsapp text-xl"></i>
@@ -335,8 +346,10 @@
                                     src="public/logo.png"
                                     alt="Elite Syariah Logo"
                                     className="w-full h-full object-contain"
+                                    width="64"
+                                    height="64"
                                     onError={(e) => {
-                                        // Fallback jika logo.png tidak ditemukan, coba cari di root atau ganti dengan icon
+                                        // Fallback jika logo.png tidak ditemukan
                                         e.target.src = "logo.svg";
                                         e.target.onerror = (err) => {
                                             err.target.style.display = 'none';
@@ -378,7 +391,7 @@
                         <button
                             className="md:hidden text-white text-2xl focus:outline-none"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            aria-label="Toggle menu"
+                            aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
                         >
                             <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
                         </button>
@@ -419,6 +432,9 @@
                             src="public/hero.jpg"
                             alt="Elite Syariah Guest House Exterior"
                             className="w-full h-full object-cover"
+                            width="1920"
+                            height="1080"
+                            fetchPriority="high"
                             onError={(e) => {
                                 e.target.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop";
                             }}
@@ -473,7 +489,7 @@
                                 Mengapa Memilih Kami?
                             </h2>
                             <div className="w-20 h-1 bg-amber-600 mx-auto rounded-full"></div>
-                            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+                            <p className="mt-4 text-gray-700 max-w-2xl mx-auto">
                                 Kami mengutamakan keamanan dan kenyamanan tamu dengan standar pelayanan terbaik di kelasnya.
                             </p>
                         </div>
@@ -519,6 +535,9 @@
                                         src="public/fasilitas.jpg"
                                         alt="Fasilitas Kamar Lengkap Elite Syariah"
                                         className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                                        width="600"
+                                        height="400"
+                                        loading="lazy"
                                         onError={(e) => {
                                             e.target.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
                                         }}
@@ -534,7 +553,7 @@
                                     Fasilitas Lengkap <br />
                                     <span className="text-amber-400">Untuk Istirahat Berkualitas</span>
                                 </h2>
-                                <p className="text-gray-200 mb-8 text-lg">
+                                <p className="text-emerald-100 mb-8 text-lg">
                                     Setiap kamar didesain untuk memaksimalkan privasi dan kenyamanan Anda, baik untuk transit singkat maupun tinggal jangka panjang.
                                 </p>
 
@@ -542,7 +561,7 @@
                                     {ROOM_FACILITIES.map((item, idx) => (
                                         <div key={idx} className="flex items-center gap-3 p-3 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
                                             <i className={`${item.icon} text-amber-400 text-xl w-8 text-center`}></i>
-                                            <span className="font-medium">{item.title}</span>
+                                            <span className="font-medium text-emerald-50">{item.title}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -555,17 +574,10 @@
 
         // --- Reviews.tsx ---
         const Reviews = () => {
-            // Helper to get initials from name
             const getInitials = (name) => {
-                return name
-                    .split(' ')
-                    .map(n => n[0])
-                    .join('')
-                    .substring(0, 2)
-                    .toUpperCase();
+                return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
             };
 
-            // Helper to generate consistent background color based on name length
             const getBgColor = (name) => {
                 const colors = [
                     'bg-red-500', 'bg-orange-500', 'bg-amber-500',
@@ -689,6 +701,8 @@
                                     src={img}
                                     alt={`${plan.title} - View ${idx + 1}`}
                                     className="w-full h-full object-cover"
+                                    width="400"
+                                    height="300"
                                     loading="lazy"
                                 />
                             </div>
@@ -697,14 +711,14 @@
                         <button
                             onClick={prevImage}
                             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/30 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100"
-                            aria-label="Previous Image"
+                            aria-label="Foto sebelumnya"
                         >
                             <i className="fa-solid fa-chevron-left text-sm"></i>
                         </button>
                         <button
                             onClick={nextImage}
                             className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/30 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:opacity-100"
-                            aria-label="Next Image"
+                            aria-label="Foto selanjutnya"
                         >
                             <i className="fa-solid fa-chevron-right text-sm"></i>
                         </button>
@@ -716,7 +730,7 @@
                                     onClick={(e) => goToImage(idx, e)}
                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/80'
                                         }`}
-                                    aria-label={`Go to image ${idx + 1}`}
+                                    aria-label={`Lihat foto ${idx + 1}`}
                                 />
                             ))}
                         </div>
@@ -729,7 +743,7 @@
 
                         <div className="flex items-baseline gap-1 mb-4 border-b border-gray-100 pb-4">
                             <span className="text-2xl md:text-3xl font-bold text-amber-600">{plan.price}</span>
-                            <span className="text-gray-400 text-xs md:text-sm font-medium">{plan.period}</span>
+                            <span className="text-gray-500 text-xs md:text-sm font-medium">{plan.period}</span>
                         </div>
 
                         <ul className="space-y-3 mb-6 flex-grow">
@@ -790,6 +804,7 @@
                                         onClick={() => setMode('daily')}
                                         className={`relative z-10 w-[140px] md:w-[160px] py-3 rounded-full font-bold text-sm md:text-base transition-colors duration-300 flex items-center justify-center gap-2 ${mode === 'daily' ? 'text-white' : 'text-gray-500 hover:text-emerald-900'
                                             }`}
+                                        aria-label="Pilih Paket Harian"
                                     >
                                         <i className="fa-solid fa-suitcase"></i> Harian
                                     </button>
@@ -797,6 +812,7 @@
                                         onClick={() => setMode('monthly')}
                                         className={`relative z-10 w-[140px] md:w-[160px] py-3 rounded-full font-bold text-sm md:text-base transition-colors duration-300 flex items-center justify-center gap-2 ${mode === 'monthly' ? 'text-white' : 'text-gray-500 hover:text-emerald-900'
                                             }`}
+                                        aria-label="Pilih Paket Bulanan"
                                     >
                                         <i className="fa-solid fa-calendar-days"></i> Bulanan
                                     </button>
@@ -878,7 +894,7 @@
                                     allowFullScreen={true}
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
-                                    title="Google Maps Location"
+                                    title="Google Maps Location of Elite Syariah Guest House"
                                 ></iframe>
                             </div>
                         </div>
@@ -904,13 +920,14 @@
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors"
+                                    aria-label="Hubungi via WhatsApp"
                                 >
                                     <i className="fa-brands fa-whatsapp text-white"></i>
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="Kunjungi Instagram">
                                     <i className="fa-brands fa-instagram text-white"></i>
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors">
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-600 transition-colors" aria-label="Kunjungi Facebook">
                                     <i className="fa-brands fa-facebook-f text-white"></i>
                                 </a>
                             </div>
@@ -950,7 +967,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden md:flex fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform z-50 animate-bounce-slow"
-                        aria-label="Chat WhatsApp"
+                        aria-label="Chat via WhatsApp"
                     >
                         <i className="fa-brands fa-whatsapp text-3xl"></i>
                     </a>

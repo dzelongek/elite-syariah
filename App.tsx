@@ -35,7 +35,7 @@ const App: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="hidden md:flex fixed bottom-8 right-8 bg-green-500 text-white w-14 h-14 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform z-50 animate-bounce-slow"
-        aria-label="Chat WhatsApp"
+        aria-label="Chat via WhatsApp"
       >
         <i className="fa-brands fa-whatsapp text-3xl"></i>
       </a>
