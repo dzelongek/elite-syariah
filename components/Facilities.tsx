@@ -17,7 +17,7 @@ const Facilities: React.FC = () => {
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
               <img
-                src="/fasilitas.jpg"
+                src="public/fasilitas.jpg"
                 alt="Fasilitas Kamar Lengkap Elite Syariah"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
                 width="600"
@@ -25,8 +25,11 @@ const Facilities: React.FC = () => {
                 loading="lazy"
                 onError={(e) => {
                   const img = e.target as HTMLImageElement;
-                  // Fallback to Unsplash if local image fails
-                  img.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                  if (img.src.includes('public/')) {
+                    img.src = "fasilitas.jpg";
+                  } else {
+                    img.src = "https://images.unsplash.com/photo-1505693416388-b0346efee53e?q=80&w=2070&auto=format&fit=crop";
+                  }
                 }}
               />
               <div className="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 w-full">
