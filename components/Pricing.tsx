@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { PricingMode, PricingPlan } from '../types';
 import { PRICING_DAILY, PRICING_MONTHLY, WHATSAPP_NUMBER } from '../constants';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import '../index.css';
 
 // Sub-component untuk Card dengan Image Slider
-const RoomCard: React.FC<{ plan: PricingPlan; mode: PricingMode }> = ({ plan, mode }) => {
+const RoomCard: React.FC<{ plan: PricingPlan; mode: PricingMode; index: number; isVisible: boolean }> = ({ plan, mode, index, isVisible }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = (e: React.MouseEvent) => {
@@ -26,11 +28,11 @@ const RoomCard: React.FC<{ plan: PricingPlan; mode: PricingMode }> = ({ plan, mo
 
   return (
     <div
-      className={`relative bg-white rounded-2xl shadow-lg overflow-hidden border transition-all duration-300 hover:shadow-2xl flex flex-col h-full group ${plan.recommended ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-gray-100'
-        }`}
+      className={`relative bg-white rounded-2xl shadow-lg overflow-hidden border transition-all duration-700 hover:shadow-2xl flex flex-col h-full group ${plan.recommended ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-gray-100'} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       {plan.recommended && (
-        <div className="absolute top-4 right-0 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-l-md z-20 shadow-md uppercase tracking-wider">
+        <div className="absolute top-4 right-0 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-l-md z-20 shadow-md uppercase tracking-wider animate-pulse">
           Terlaris
         </div>
       )}
@@ -116,12 +118,15 @@ const RoomCard: React.FC<{ plan: PricingPlan; mode: PricingMode }> = ({ plan, mo
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Halo%20Admin,%20saya%20tertarik%20booking%20kamar%20*${encodeURIComponent(plan.title)}*%20(${mode === 'daily' ? 'Harian' : 'Bulanan'})%20seharga%20${encodeURIComponent(plan.price)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block w-full text-center py-3 rounded-xl font-bold text-sm transition-all transform active:scale-95 ${plan.recommended
-                ? 'bg-emerald-900 hover:bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 hover:shadow-xl'
-                : 'bg-white border-2 border-emerald-900 text-emerald-900 hover:bg-emerald-50'
+            className={`block w-full text-center py-3 rounded-xl font-bold text-sm transition-all transform active:scale-95 group/btn relative overflow-hidden ${plan.recommended
+              ? 'bg-emerald-900 hover:bg-emerald-800 text-white shadow-lg shadow-emerald-900/20 hover:shadow-xl'
+              : 'bg-white border-2 border-emerald-900 text-emerald-900 hover:bg-emerald-50'
               }`}
           >
-            Pesan Via WhatsApp
+            <span className="relative z-10">Pesan Via WhatsApp</span>
+            {plan.recommended && (
+              <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] animate-[shine_3s_infinite]"></div>
+            )}
           </a>
         </div>
       </div>
@@ -131,14 +136,15 @@ const RoomCard: React.FC<{ plan: PricingPlan; mode: PricingMode }> = ({ plan, mo
 
 const Pricing: React.FC = () => {
   const [mode, setMode] = useState<PricingMode>('daily');
+  const { elementRef, isVisible } = useScrollAnimation();
 
   const plans = mode === 'daily' ? PRICING_DAILY : PRICING_MONTHLY;
 
   return (
     <section id="pricing" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4" ref={elementRef}>
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-emerald-900">
             Pilih Paket Menginap
           </h2>
@@ -174,12 +180,12 @@ const Pricing: React.FC = () => {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {plans.map((plan) => (
-            <RoomCard key={plan.id} plan={plan} mode={mode} />
+          {plans.map((plan, idx) => (
+            <RoomCard key={plan.id} plan={plan} mode={mode} index={idx} isVisible={isVisible} />
           ))}
         </div>
 
-        <p className="text-center text-gray-500 text-sm mt-12 italic">
+        <p className={`text-center text-gray-500 text-sm mt-12 italic transition-all duration-700 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           *Harga sudah termasuk pajak dan pelayanan. Waktu Check-in 14:00, Check-out 12:00.
         </p>
       </div>

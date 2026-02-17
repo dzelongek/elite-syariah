@@ -1,25 +1,29 @@
 import React from 'react';
 import { ROOM_FACILITIES } from '../constants';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import '../index.css';
 
 const Facilities: React.FC = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
     <section id="facilities" className="py-20 bg-emerald-900 relative overflow-hidden">
       {/* Decorative Pattern Background */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-        <i className="fa-solid fa-star-and-crescent absolute -top-10 -left-10 text-9xl text-white"></i>
-        <i className="fa-solid fa-star-and-crescent absolute bottom-10 right-10 text-9xl text-white"></i>
+        <i className="fa-solid fa-star-and-crescent absolute -top-10 -left-10 text-9xl text-white animate-pulse"></i>
+        <i className="fa-solid fa-star-and-crescent absolute bottom-10 right-10 text-9xl text-white animate-pulse"></i>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10" ref={elementRef}>
         <div className="flex flex-col lg:flex-row items-center gap-12">
 
           {/* Image Side */}
-          <div className="w-full lg:w-1/2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30">
+          <div className={`w-full lg:w-1/2 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-600/30 group">
               <img
                 src="/fasilitas.jpg"
                 alt="Fasilitas Kamar Lengkap Elite Syariah"
-                className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-700"
                 width="600"
                 height="400"
                 loading="lazy"
@@ -38,7 +42,7 @@ const Facilities: React.FC = () => {
           </div>
 
           {/* Text/List Side */}
-          <div className="w-full lg:w-1/2 text-white">
+          <div className={`w-full lg:w-1/2 text-white transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-6">
               Fasilitas Lengkap <br />
               <span className="text-amber-400">Untuk Istirahat Berkualitas</span>
@@ -49,7 +53,11 @@ const Facilities: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-4">
               {ROOM_FACILITIES.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-colors">
+                <div
+                  key={idx}
+                  className={`flex items-center gap-3 p-3 bg-white/10 rounded-lg backdrop-blur-sm hover:bg-white/20 transition-all duration-500`}
+                  style={{ transitionDelay: `${500 + (idx * 100)}ms`, opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(10px)' }}
+                >
                   <i className={`${item.icon} text-amber-400 text-xl w-8 text-center`}></i>
                   <span className="font-medium">{item.title}</span>
                 </div>

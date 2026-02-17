@@ -22,12 +22,12 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-emerald-900 shadow-lg py-3' : 'bg-transparent py-5 lg:py-6'
+    <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'backdrop-blur-md bg-emerald-900/80 shadow-lg py-3 border-b border-white/10' : 'bg-transparent py-5 lg:py-6'
       }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden">
+          <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shrink-0 shadow-lg p-1 border border-emerald-900/10 overflow-hidden transform transition-transform hover:scale-105 duration-300">
             {/* Menggunakan path relative '/logo.png' dengan fallback */}
             {!logoError ? (
               <img
@@ -61,17 +61,19 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`font-medium transition-colors hover:text-amber-500 ${isScrolled ? 'text-gray-100' : 'text-white drop-shadow-md'
+              className={`font-medium transition-colors hover:text-amber-500 relative group ${isScrolled ? 'text-gray-100' : 'text-white drop-shadow-md'
                 }`}
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <a
             href="#pricing"
-            className="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-bold text-sm transition-transform transform hover:scale-105 shadow-lg"
+            className="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-bold text-sm transition-transform transform hover:scale-105 shadow-lg relative overflow-hidden group"
           >
-            Pesan Sekarang
+            <span className="relative z-10">Pesan Sekarang</span>
+            <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-amber-700/50"></div>
           </a>
         </div>
 
